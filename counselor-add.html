@@ -690,16 +690,26 @@
                                               placeholder="상세주소를 입력해주세요."></textarea>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="counselor-files"
-                                           class="form-label">
-                                        첨부파일
-                                    </label>
-                                    <input class="form-control"
-                                           type="file"
-                                           id="counselor-files"
-                                           multiple>
-                                  </div>
+                                <h6 class="mb-1">파일 첨부</h6>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                              id="upload-files">
+                                            파일 업로드
+                                        </span>
+                                    </div>
+                                    <div class="custom-file">
+                                        <input type="file"
+                                               class="custom-file-input"
+                                               id="counselor-files"
+                                               aria-describedby="upload-files"
+                                               multiple>
+                                        <label class="custom-file-label"
+                                               for="counselor-files">
+                                            첨부파일 선택
+                                        </label>
+                                    </div>
+                                </div>
 
                                 <button type="submit"
                                         class="mb-3 btn btn-warning float-right">
