@@ -1,0 +1,48 @@
+
+<div class="card shadow mb-3">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">예약 방식</h6>
+    </div>
+
+    <div class="card-body">
+        <form>
+            <div class="custom-control custom-radio">
+                <input type="radio"
+                       id="inquiry"
+                       name="customRadio"
+                       class="custom-control-input">
+                <label class="custom-control-label"
+                       for="inquiry">
+                       문의 방식
+                </label>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input type="radio"
+                       id="direct-reserve"
+                       name="customRadio"
+                       class="custom-control-input">
+                <label class="custom-control-label"
+                       for="direct-reserve">
+                       직접 예약 방식
+                </label>
+
+                <div class="mb-3 form-floating">
+                    <label for="content"
+                           class="form-label">
+                           문의 안내사항 입력
+                    </label>
+                    <textarea class="form-control"
+                              id="content"
+                              style="height: 100px;"
+                              placeholder="문의 안내사항 내용을 입력해주세요."></textarea>
+                </div>
+            </div>
+
+            <button type="submit"
+                    class="mb-3 btn btn-warning float-right">
+                저장
+            </button>
+        </form>
+    </div>
+</div>

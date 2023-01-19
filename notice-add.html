@@ -485,85 +485,43 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">치료(수업) 관리</h1>
+                        <h1 class="h3 mb-0 text-gray-800">공지사항 관리</h1>
                     </div>
 
-                    <div class="card shadow mb-4">
+                    <div class="card shadow mb-3">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">치료(수업) 목록</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">공지사항 등록</h6>
                         </div>
 
                         <div class="card-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="title"
+                                           class="form-label">
+                                           제목
+                                    </label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="title"
+                                           placeholder="제목을 입력해주세요.">
+                                </div>
 
-                            <div class="table-responsive">
-                                <table class="table table-bordered"
-                                       id="dataTable"
-                                       width="100%"
-                                       cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>치료명</th>
-                                            <th>장애/진단명</th>
-                                            <th>설명</th>
-                                            <th>기본 금액</th>
-                                            <th>회기</th>
-                                            <th>등록일</th>
-                                            <th>수정</th>
-                                            <th>삭제</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>치료명</th>
-                                            <th>장애/진단명</th>
-                                            <th>설명</th>
-                                            <th>기본 금액</th>
-                                            <th>회기</th>
-                                            <th>등록일</th>
-                                            <th>수정</th>
-                                            <th>삭제</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>언어치료</td>
-                                            <td>언어장애</td>
-                                            <td>
-                                                <p>
-                                                자신의 의도를 전달하는 기능과 타인의 감정과 정보를 받아 들이는 기능
-                                                즉 의사소통기능에 어려움이 있는 경우, 아이의 의사소통기능을 올바른 체계로 변화시켜주고
-                                                적절한 언어모델제시와 언어 환경을 조성하여 자신의 생활연령에 맞는 의사소통기능 향상과 언어문제를 해결하여
-                                                사회적 상황에서 적절한 언어기술을 익히도록 하는 교육적 치료입니다.
-                                                </p>
-                                            </td>
-                                            <td>100,000원</td>
-                                            <td>4</td>
-                                            <td>2023. 01. 01</td>
-                                            <td>
-                                                <button type="button"
-                                                        class="btn btn-warning">
-                                                    수정
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <button type="button"
-                                                        class="btn btn-warning">
-                                                    삭제
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="mb-3 form-floating">
+                                    <label for="content"
+                                           class="form-label">
+                                           내용
+                                    </label>
+                                    <textarea class="form-control"
+                                              id="content"
+                                              style="height: 100px;"
+                                              placeholder="내용을 입력해주세요."></textarea>
+                                </div>
 
-                                <button type="button"
-                                        class="btn btn-warning float-right">
+                                <button type="submit"
+                                        class="mb-3 btn btn-warning float-right">
                                     등록
                                 </button>
-                            </div>
-
+                            </form>
                         </div>
                     </div>
 
