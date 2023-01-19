@@ -171,14 +171,16 @@
                 <label class="form-check-label"
                        for="is-penalty">
                        패널티 적용 여부<br>
-                       <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
-                       당일 예약 취소 시 패널티 적용 여부<br>
-                       패널티는 당일 치료(수업)에도 적용됨
+                       <p>
+                            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+                            당일 예약 취소 시 패널티 적용 여부<br>
+                            패널티는 당일 치료(수업)에도 적용됨
+                       </p>
                 </label>
             </div>
 
             <div class="form-group form-check mb-3">
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label for="penalty-time">
                         패널티 적용 시간
                     </label>
@@ -212,9 +214,47 @@
                         <option value="24">24시간</option>
                     </select>
                 </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-check-label"
+                           for="day-criterion">
+                        당일 기준
+                        <p>
+                            <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+                            예약 취소 시 당일에 대한 기준 설정
+                        </p>
+                    </label>
+                    <div class="form-group form-check mb-3"
+                         id="day-crierion">
+
+                         <div class="form-check mb-3"
+                              id="day-criterion">
+                            <input type="checkbox"
+                                   class="form-check-input"
+                                   id="very-day">
+                            <label class="form-check-label"
+                                   for="very-day">
+                                예약 당일 기준
+                            </label>
+                        </div>
+
+                        <div class="form-check mb-3"
+                             id="day-criterion">
+                            <input type="checkbox"
+                                   class="form-check-input"
+                                   id="cancel-day">
+                            <label class="form-check-label"
+                                   for="cancel-day">
+                                취소 일시 기준
+                            </label>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
 
-            <div class="mb-3 form-floating">
+            <div class="mb-3 form-group form-floating">
                 <label class="custom-control-label"
                        for="penalty-content">
                        패널티 정책 내용
