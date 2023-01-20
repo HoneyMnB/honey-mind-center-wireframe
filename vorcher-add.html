@@ -17,6 +17,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d7bdeb3ca7.js" crossorigin="anonymous"></script>
 
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2-sub.min.css" rel="stylesheet">
@@ -47,9 +48,6 @@
             }
         }
     </style>
-
-    <!-- Profile StyleSheets -->
-    <link href="assets/css/profile.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -215,7 +213,7 @@
                         <h6 class="collapse-header">회원 관리</h6>
 
                         <a class="collapse-item"
-                           href="#">
+                           href="counselor-list.html">
                            상담사(선생님) 관리
                         </a>
                         <a class="collapse-item"
@@ -513,233 +511,80 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">상담사(선생님) 관리</h1>
+                        <h1 class="h3 mb-0 text-gray-800">바우처 사업 관리</h1>
                     </div>
 
-                    <div class="card shadow mb-4">
+                    <div class="card shadow mb-3">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">상담사(선생님) 등록</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">바우처 사업 등록</h6>
                         </div>
 
                         <div class="card-body">
-
                             <form>
                                 <div class="mb-3">
-                                    <div class="picture-container">
-                                        <div class="picture">
-                                            <img src="https://lh3.googleusercontent.com/LfmMVU71g-HKXTCP_QWlDOemmWg4Dn1rJjxeEsZKMNaQprgunDTtEuzmcwUBgupKQVTuP0vczT9bH32ywaF7h68mF-osUSBAeM6MxyhvJhG6HKZMTYjgEv3WkWCfLB7czfODidNQPdja99HMb4qhCY1uFS8X0OQOVGeuhdHy8ln7eyr-6MnkCcy64wl6S_S6ep9j7aJIIopZ9wxk7Iqm-gFjmBtg6KJVkBD0IA6BnS-XlIVpbqL5LYi62elCrbDgiaD6Oe8uluucbYeL1i9kgr4c1b_NBSNe6zFwj7vrju4Zdbax-GPHmiuirf2h86eKdRl7A5h8PXGrCDNIYMID-J7_KuHKqaM-I7W5yI00QDpG9x5q5xOQMgCy1bbu3St1paqt9KHrvNS_SCx-QJgBTOIWW6T0DHVlvV_9YF5UZpN7aV5a79xvN1Gdrc7spvSs82v6gta8AJHCgzNSWQw5QUR8EN_-cTPF6S-vifLa2KtRdRAV7q-CQvhMrbBCaEYY73bQcPZFd9XE7HIbHXwXYA=s200-no"
-                                                 class="picture-src"
-                                                 id="wizardPicturePreview"
-                                                 title="">
-                                            <input type="file"
-                                                   id="wizard-picture"
-                                                   class="">
-                                        </div>
-                                    <h6 class="">프로필 이미지 선택</h6>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="counselor-id"
+                                    <label for="voucher-name"
                                            class="form-label">
-                                           아이디
+                                           사업명
                                     </label>
                                     <input type="text"
                                            class="form-control"
-                                           id="counselor-id"
-                                           placeholder="상담사(선생님)의 아이디를 입력해주세요.">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="counselor-password"
-                                           class="form-label">
-                                           비밀번호
-                                    </label>
-                                    <input type="password"
-                                           class="form-control"
-                                           id="counselor-password"
-                                           placeholder="비밀번호를 입력해주세요.">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="counselor-password2"
-                                           class="form-label">
-                                           비밀번호 확인
-                                    </label>
-                                    <input type="password"
-                                           class="form-control"
-                                           id="counselor-password2"
-                                           placeholder="비밀번호를 재입력해주세요.">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="counselor-name"
-                                           class="form-label">
-                                           성명
-                                    </label>
-                                    <input type="text"
-                                           class="form-control"
-                                           id="counselor-name"
-                                           placeholder="상담사(선생님)의 성함을 입력해주세요.">
-                                </div>
-
-                                <h6 class="mb-1">성별</h6>
-                                <div class="mb-3"
-                                     id="gender">
-                                     <div class="form-check form-check-inline">
-                                         <input type="radio"
-                                                id="man"
-                                                name="gender"
-                                                class="form-check-input"
-                                                checked>
-                                         <label class="form-check-label"
-                                                for="man">
-                                                남성
-                                         </label>
-                                     </div>
-
-                                     <div class="form-check form-check-inline">
-                                         <input type="radio"
-                                                id="woman"
-                                                name="gender"
-                                                class="form-check-input">
-                                         <label class="form-check-label"
-                                                for="woman">
-                                                여성
-                                         </label>
-                                     </div>
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="subject">
-                                        담당과목
-                                    </label>
-                                    <select class="form-control"
-                                            id="subject">
-                                        <option value=""
-                                                selected>
-                                            담당과목을 선택해주세요.
-                                        </option>
-                                        <option value="language">언어</option>
-                                        <option value="pe">체육</option>
-                                        <option value="sensory">감각통합</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="voucher">
-                                        바우처 선택
-                                    </label>
-                                    <select class="form-control"
-                                            id="voucher">
-                                        <option value=""
-                                                selected>
-                                            바우처를 선택해주세요.
-                                        </option>
-                                        <option value="1">꿈이든</option>
-                                        <option value="2">우리아이 심리지원서비스</option>
-                                    </select>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="counselor-email"
-                                           class="form-label">
-                                           이메일
-                                    </label>
-                                    <input type="email"
-                                           class="form-control"
-                                           id="counselor-email"
-                                           placeholder="example@honeymnb.com">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="phone-no"
-                                           class="form-label">
-                                           휴대전화
-                                    </label>
-                                    <input type="text"
-                                           class="form-control"
-                                           id="phone-no"
-                                           placeholder="- 없이 입력">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="company-no"
-                                           class="form-label">
-                                           사무실 번호
-                                    </label>
-                                    <input type="text"
-                                           class="form-control"
-                                           id="company-no"
-                                           placeholder="- 없이 입력">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="fax"
-                                           class="form-label">
-                                           팩스 번호
-                                    </label>
-                                    <input type="text"
-                                           class="form-control"
-                                           id="fax"
-                                           placeholder="- 없이 입력">
-                                </div>
-
-                                <h6 class="mb-1">우편번호</h6>
-                                <div class="input-group mb-3">
-                                    <input type="text"
-                                           class="form-control"
-                                           id="post"
-                                           name="post"
-                                           placeholder="우편번호를 입력해주세요.">
-                                    <button type="button"
-                                            class="mb-3 btn btn-warning float-right"
-                                            id="find-post">
-                                        우편번호 찾기
-                                    </button>
+                                           id="voucher-name"
+                                           placeholder="바우처 사업명을 입력해주세요.">
                                 </div>
 
                                 <div class="mb-3 form-floating">
-                                    <label for="counselor-address1"
+                                    <label for="voucher-content"
                                            class="form-label">
-                                           주소
+                                           내용
                                     </label>
                                     <textarea class="form-control"
-                                              id="counselor-address1"
-                                              name="counselor-address1"
+                                              id="voucher-content"
                                               style="height: 100px;"
-                                              placeholder="주소를 입력해주세요."></textarea>
+                                              placeholder="내용을 입력해주세요."></textarea>
                                 </div>
 
-                                <div class="mb-3 form-floating">
-                                    <label for="counselor-address2"
-                                           class="form-label">
-                                           상세주소
-                                    </label>
-                                    <textarea class="form-control"
-                                              id="counselor-address2"
-                                              style="height: 100px;"
-                                              placeholder="상세주소를 입력해주세요."></textarea>
-                                </div>
-
-                                <h6 class="mb-1">파일 첨부</h6>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"
-                                              id="upload-files">
-                                            파일 업로드
-                                        </span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file"
-                                               class="custom-file-input"
-                                               id="counselor-files"
-                                               aria-describedby="upload-files"
-                                               multiple>
-                                        <label class="custom-file-label"
-                                               for="counselor-files">
-                                            첨부파일 선택
+                                <div class="mb-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">계산 기준</h6>
+                                    <p>
+                                        <i class="fa-sharp fa-solid fa-circle-exclamation"></i>
+                                        본인납부금액을 정가 혹은 퍼센트로 계산할지 결정
+                                    </p>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio"
+                                               id="price"
+                                               name="calculate-criteria"
+                                               class="custom-control-input"
+                                               checked>
+                                        <label class="custom-control-label"
+                                               for="price">
+                                               정가
                                         </label>
                                     </div>
+
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio"
+                                               id="percent"
+                                               name="calculate-criteria"
+                                               class="custom-control-input">
+                                        <label class="custom-control-label"
+                                               for="percent">
+                                               퍼센트
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">바우처 지원금액</h6>
+                                    
+                                    <a class="dropdown-item"
+                                       href="#"
+                                       data-toggle="modal"
+                                       data-target="#voucherModal">
+                                        <button type="submit"
+                                                class="mb-3 btn btn-warning float-right">
+                                            지원금액 설정    
+                                        </button>
+                                    </a>
                                 </div>
 
                                 <button type="submit"
@@ -747,12 +592,11 @@
                                     등록
                                 </button>
                             </form>
-
                         </div>
                     </div>
 
                 </div>
-                <!-- /.container-fluid -->
+                <!-- End Page Content -->
 
             </div>
             <!-- End of Main Content -->
@@ -777,6 +621,117 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+    <!-- Voucher Modal-->
+    <div class="modal fade"
+         id="vorcherModal"
+         tabindex="-1"
+         role="dialog"
+         aria-labelledby="voucherModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h5 class="modal-title"
+                        id="voucherModalLabel">
+                        바우처 사업 펀딩(Funding) 방식
+                    </h5>
+
+                    <button class="close"
+                            type="button"
+                            data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="card shadow mb-3">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="voucher-category"
+                                       class="form-label">
+                                       구분명
+                                </label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="voucher-category"
+                                       placeholder="구분명을 입력해주세요.">
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="voucher-income">
+                                    소득분위 선택
+                                </label>
+                                <select class="form-control"
+                                        id="voucher-income">
+                                    <option value=""
+                                            selected>
+                                        소득분위를 선택해주세요.
+                                    </option>
+                                    <option value="1">1분위</option>
+                                    <option value="2">2분위</option>
+                                    <option value="3">3분위</option>
+                                    <option value="4">4분위</option>
+                                    <option value="5">5분위</option>
+                                    <option value="6">6분위</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="voucher-fund"
+                                       class="form-label">
+                                       지원금액
+                                </label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="voucher-fund"
+                                       placeholder="지원금액을 입력해주세요.">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="voucher-self-price"
+                                       class="form-label">
+                                       본인납부금액 (정가)
+                                </label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="voucher-fund"
+                                       placeholder="본인납부 정가액을 입력해주세요.">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="voucher-percent-price"
+                                       class="form-label">
+                                       본인납부금액 (퍼센트)
+                                </label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="voucher-percent-price"
+                                       placeholder="본인납부금 비율을 입력해주세요.">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary"
+                            type="button"
+                            data-dismiss="modal">
+                        취소
+                    </button>
+                    <a class="btn btn-warning"
+                       href="#">
+                       등록
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 
     <!-- Logout Modal-->
     <div class="modal fade"
@@ -831,50 +786,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="assets/js/sb-admin-2.min.js"></script>
-
-    <!-- Upload Profile Image Scripts -->
-    <script>
-
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $(document).ready( function () {
-            // Prepare the preview for profile picture
-            $("#wizard-picture").change(function(){
-                readURL(this);
-            });
-        });
-
-    </script>
-
-    <!-- daum.postcode.js -->
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script>
-
-        var postcode = new daum.Postcode({
-            oncomplete: function(data) {
-                const zoneCode = data.zonecode;
-                const roadAddr = data.roadAddress;
-
-                $("#post").val(zoneCode);
-                $("#counselor-address1").val(roadAddr);
-            }
-        });
-
-        $("#find-post").on("click", function () {
-            postcode.open();
-        });
-
-    </script>
-
 </body>
 
 </html>
