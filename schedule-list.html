@@ -22,6 +22,9 @@
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2-sub.min.css" rel="stylesheet">
 
+    <!-- jQuery UI-ContextMenu -->
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+
     <!-- FullCalendar Libraries -->
     <link href="assets/packages/core/main.css"     rel="stylesheet" />
     <link href="assets/packages/daygrid/main.css"  rel="stylesheet" />
@@ -48,22 +51,6 @@
             }
         }
     </style>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- jQuery UI-ContextMenu -->
-    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.ui.position.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="assets/js/sb-admin-2.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -538,127 +525,6 @@
                         <div id='calendar'></div>
                     </div>
 
-                    <script>
-
-                        document.addEventListener(
-                              "DOMContentLoaded"
-                            , function () {
-                                var calendarEl = document.getElementById("calendar");
-
-                                var calendar   = new FullCalendar.Calendar(calendarEl, {
-                                      locale : "ko"
-                                    , plugins: [
-                                          "interaction"
-                                        , "dayGrid"
-                                        , "timeGrid"
-                                        , "list"
-                                    ]
-                                    , height       : "parent"
-                                    , contentHeight: function () {
-                                        if( screen.width < 800 ){
-                                            return 350;
-                                        } else {
-                                            return 600;
-                                        }
-                                    }
-                                    , aspectRatio: 2
-                                    , header     : {
-                                        left  : "prev,next today"
-                                      , center: "title"
-                                      , right : "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
-                                    }
-                                    , defaultView: "dayGridMonth"
-                                    , defaultDate: "2023-01-01"
-                                    , navLinks: true
-                                    , editable: true
-                                    , selectable: true
-                                    //When u select some space in the calendar do the following:
-                                    , select: function (start, end, allDay) {
-                                        //do something when space selected
-                                        //Show 'add event' modal
-                                        $('#createEventModal').modal('show');
-                                    }
-                                    , eventLimit: true
-                                    , events: [
-                                      {
-                                          title: "언어치료"
-                                        , start: "2023-01-02"
-                                      },
-                                      {
-                                          title: "언어치료"
-                                        , start: "2023-01-09"
-                                        , end  : "2023-01-12"
-                                      },
-                                      {
-                                          groupId: 999
-                                        , title  : "감통치료"
-                                        , start  : "2023-02-09T16:00:00"
-                                      },
-                                      {
-                                          groupId: 999
-                                        , title  : "감통치료"
-                                        , start  : "2023-02-16T16:00:00"
-                                      },
-                                      {
-                                          title: "언어치료"
-                                        , start: "2023-02-11"
-                                        , end  : "2023-02-13"
-                                      },
-                                      {
-                                          title: "언어치료"
-                                        , start: "2023-02-12T10:30:00"
-                                        , end  : "2023-02-12T12:30:00"
-                                      },
-                                      {
-                                          title: "미술치료"
-                                        , start: "2023-02-12T12:00:00"
-                                      },
-                                      {
-                                          title: "미술치료"
-                                        , start: "2023-02-12T14:30:00"
-                                      },
-                                      {
-                                          title: "언어치료"
-                                        , start: "2023-02-12T17:30:00"
-                                      },
-                                      {
-                                          title: "감통치료"
-                                        , start: "2023-02-12T20:00:00"
-                                      },
-                                      {
-                                          title: "체육수업"
-                                        , start: "2023-02-13T07:00:00"
-                                      },
-                                      {
-                                          title: "구글"
-                                        , url  : "http://google.com/"
-                                        , start: "2023-02-28"
-                                      }
-                                    ]
-                                });
-
-                                calendar.render();
-
-                                $('#submitButton').on('click', function (e) {
-                                    // We don't want this to act as a link so cancel the link action
-                                    e.preventDefault();
-
-                                    doSubmit();
-                                });
-
-                                function doSubmit( ) {
-                                    $("#createEventModal").modal('hide');
-                                    $("#calendar").fullCalendar(
-                                        'renderEvent'
-                                        , {
-                                              title: $('#eventName').val()
-                                            , start: new Date($('#eventDueDate').val())
-                                        } , true
-                                    );
-                                }
-                            });
-                      </script>
-
                 </div>
                 <!-- /.container-fluid -->
 
@@ -730,9 +596,11 @@
         </div>
     </div>
 
+    <!-- Schedule Modal -->
     <div id="createEventModal"
          class="modal fade">
-        <div class="modal-dialog">
+        <div class="modal-dialog"
+             role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4>스케줄 추가</h4>
@@ -799,6 +667,11 @@
                             aria-hidden="true">
                         취소
                     </button>
+                    <button class="btn btn-danger"
+                            data-dismiss="modal"
+                            aria-hidden="true">
+                        삭제
+                    </button>
                     <button type="submit"
                             class="btn btn-warning"
                             id="submitButton">
@@ -808,6 +681,140 @@
             </div>
         </div>
     </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery UI-ContextMenu -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.ui.position.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="assets/js/sb-admin-2.min.js"></script>
+
+    <script>
+
+        document.addEventListener(
+              "DOMContentLoaded"
+            , function () {
+                var calendarEl = document.getElementById("calendar");
+                var calendar   = new FullCalendar.Calendar(calendarEl, {
+                      locale : "ko"
+                    , plugins: [
+                          "interaction"
+                        , "dayGrid"
+                        , "timeGrid"
+                        , "list"
+                    ]
+                    , height       : "parent"
+                    , contentHeight: function () {
+                        if( screen.width < 800 ){
+                            return 350;
+                        } else {
+                            return 600;
+                        }
+                    }
+                    , aspectRatio: 2
+                    , header     : {
+                        left  : "prev,next today"
+                      , center: "title"
+                      , right : "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
+                    }
+                    , defaultView: "dayGridMonth"
+                    , defaultDate: "2023-01-01"
+                    , navLinks: true
+                    , editable: true
+                    , selectable: true
+                    //When u select some space in the calendar do the following:
+                    , select: function (start, end, allDay) {
+                        //do something when space selected
+                        //Show 'add event' modal
+                        $('#createEventModal').modal('show');
+                    }
+                    , eventLimit: true
+                    , events: [
+                      {
+                          title: "언어치료"
+                        , start: "2023-01-02"
+                      },
+                      {
+                          title: "언어치료"
+                        , start: "2023-01-09"
+                        , end  : "2023-01-12"
+                      },
+                      {
+                          groupId: 999
+                        , title  : "감통치료"
+                        , start  : "2023-02-09T16:00:00"
+                      },
+                      {
+                          groupId: 999
+                        , title  : "감통치료"
+                        , start  : "2023-02-16T16:00:00"
+                      },
+                      {
+                          title: "언어치료"
+                        , start: "2023-02-11"
+                        , end  : "2023-02-13"
+                      },
+                      {
+                          title: "언어치료"
+                        , start: "2023-02-12T10:30:00"
+                        , end  : "2023-02-12T12:30:00"
+                      },
+                      {
+                          title: "미술치료"
+                        , start: "2023-02-12T12:00:00"
+                      },
+                      {
+                          title: "미술치료"
+                        , start: "2023-02-12T14:30:00"
+                      },
+                      {
+                          title: "언어치료"
+                        , start: "2023-02-12T17:30:00"
+                      },
+                      {
+                          title: "감통치료"
+                        , start: "2023-02-12T20:00:00"
+                      },
+                      {
+                          title: "체육수업"
+                        , start: "2023-02-13T07:00:00"
+                      },
+                      {
+                          title: "구글"
+                        , url  : "http://google.com/"
+                        , start: "2023-02-28"
+                      }
+                    ]
+                });
+
+                calendar.render();
+
+                $("#submitButton").on("click", function (e) {
+                    // We don't want this to act as a link so cancel the link action
+                    e.preventDefault();
+                    doSubmit();
+                });
+
+                function doSubmit( ) {
+                    $("#createEventModal").modal("hide");
+                    $("#calendar").fullCalendar(
+                        'renderEvent'
+                        , {
+                              title: $("#eventName").val()
+                            , start: new Date($("#eventDueDate").val())
+                        } , true
+                    );
+                }
+            });
+    </script>
 </body>
 
 </html>
