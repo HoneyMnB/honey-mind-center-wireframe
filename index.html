@@ -864,11 +864,10 @@
                     , editable: true
                     , selectable: true
                     //When u select some space in the calendar do the following:
-                    , select: function (start, end, allDay) {
-                        $("#eventDueDate").val(start.startStr);
-                        if ( end != null ) {
-                            $("#eventEndDate").val(end.endStr);
-                        }
+                    , select: function (dayInfo) {
+                        $("#eventDueDate").val(dayInfo.startStr);
+                        $("#eventEndDate").val(dayInfo.endStr);
+
                         $("#createEventModal").modal("show");
                     }
                     , eventLimit: true
