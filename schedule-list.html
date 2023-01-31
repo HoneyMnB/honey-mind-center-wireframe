@@ -521,8 +521,8 @@
                         </a>
                     </div>
 
-                    <div id='calendar-container'>
-                        <div id='calendar'></div>
+                    <div id="calendar-container">
+                        <div id="calendar"></div>
                     </div>
 
                 </div>
@@ -613,24 +613,47 @@
                 </div>
                 <div id="modalBody"
                      class="modal-body">
-                   <div class="form-group">
-                        <input class="form-control"
-                               type="text"
-                               placeholder="스케줄명"
-                               id="eventName">
+                    <div class="form-group">
+                        <select class="form-control"
+                                id="subject">
+                            <option value=""
+                                    selected>
+                                치료(수업)을 선택해주세요.
+                            </option>
+                            <option value="language">언어</option>
+                            <option value="pe">체육</option>
+                            <option value="sensory">감각통합</option>
+                        </select>
                     </div>
 
-                    <div class="form-group form-inline">
+                    <div class="form-group">
+                        <span>시작날짜</span> 
                         <div class="input-group date"
                              data-provide="datepicker">
                             <input type="text"
                                    id="eventDueDate"
                                    class="form-control"
-                                   placeholder="날짜 (mm/dd/yyyy) (테스트)">
+                                   readonly>
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
                             </div>
                         </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <span>종료날짜</span> 
+                        <div class="input-group date"
+                             data-provide="datepicker">
+                            <input type="text"
+                                       id="eventEndDate"
+                                       class="form-control"
+                                       readonly>
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="form-group">
@@ -732,9 +755,11 @@
                     , selectable: true
                     //When u select some space in the calendar do the following:
                     , select: function (start, end, allDay) {
-                        //do something when space selected
-                        //Show 'add event' modal
-                        $('#createEventModal').modal('show');
+                        $("#eventDueDate").val(start.startStr);
+                        if ( end != null ) {
+                            $("#eventEndDate").val(end.endStr);
+                        }
+                        $("#createEventModal").modal("show");
                     }
                     , eventLimit: true
                     , events: [
@@ -800,13 +825,14 @@
                 $("#submitButton").on("click", function (e) {
                     // We don't want this to act as a link so cancel the link action
                     e.preventDefault();
+
                     doSubmit();
                 });
 
                 function doSubmit( ) {
                     $("#createEventModal").modal("hide");
                     $("#calendar").fullCalendar(
-                        'renderEvent'
+                        "renderEvent"
                         , {
                               title: $("#eventName").val()
                             , start: new Date($("#eventDueDate").val())
