@@ -17,6 +17,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d7bdeb3ca7.js" crossorigin="anonymous"></script>
 
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2-sub.min.css" rel="stylesheet">
@@ -47,6 +48,22 @@
             }
         }
     </style>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery UI-ContextMenu -->
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.contextMenu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.9.2/jquery.ui.position.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="assets/js/sb-admin-2.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -554,6 +571,13 @@
                                     , defaultDate: "2023-01-01"
                                     , navLinks: true
                                     , editable: true
+                                    , selectable: true
+                                    //When u select some space in the calendar do the following:
+                                    , select: function (start, end, allDay) {
+                                        //do something when space selected
+                                        //Show 'add event' modal
+                                        $('#createEventModal').modal('show');
+                                    }
                                     , eventLimit: true
                                     , events: [
                                       {
@@ -614,6 +638,24 @@
                                 });
 
                                 calendar.render();
+
+                                $('#submitButton').on('click', function (e) {
+                                    // We don't want this to act as a link so cancel the link action
+                                    e.preventDefault();
+
+                                    doSubmit();
+                                });
+
+                                function doSubmit( ) {
+                                    $("#createEventModal").modal('hide');
+                                    $("#calendar").fullCalendar(
+                                        'renderEvent'
+                                        , {
+                                              title: $('#eventName').val()
+                                            , start: new Date($('#eventDueDate').val())
+                                        } , true
+                                    );
+                                }
                             });
                       </script>
 
@@ -688,15 +730,84 @@
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="assets/vendor/jquery/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <div id="createEventModal"
+         class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>스케줄 추가</h4>
+                    <button type="button"
+                            class="close"
+                            data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span> 
+                        <span class="sr-only">close</span>
+                    </button>
+                </div>
+                <div id="modalBody"
+                     class="modal-body">
+                   <div class="form-group">
+                        <input class="form-control"
+                               type="text"
+                               placeholder="스케줄명"
+                               id="eventName">
+                    </div>
 
-    <!-- Core plugin JavaScript-->
-    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+                    <div class="form-group form-inline">
+                        <div class="input-group date"
+                             data-provide="datepicker">
+                            <input type="text"
+                                   id="eventDueDate"
+                                   class="form-control"
+                                   placeholder="날짜 (mm/dd/yyyy) (테스트)">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Custom scripts for all pages-->
-    <script src="assets/js/sb-admin-2.min.js"></script>
+                    <div class="form-group">
+                        <button type="button"
+                                class="btn btn-warning"
+                                id="btn-add-counselor">
+                            <i class="fa-solid fa-plus"></i>
+                            상담사(선생님) 추가
+                        </button>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button"
+                                class="btn btn-warning"
+                                id="btn-add-customer">
+                            <i class="fa-solid fa-plus"></i>
+                            내담자(학생) 추가
+                        </button>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="form-control"
+                                  type="text"
+                                  rows="4"
+                                  placeholder="메모"
+                                  id="eventDescription"></textarea>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn"
+                            data-dismiss="modal"
+                            aria-hidden="true">
+                        취소
+                    </button>
+                    <button type="submit"
+                            class="btn btn-warning"
+                            id="submitButton">
+                        등록
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
